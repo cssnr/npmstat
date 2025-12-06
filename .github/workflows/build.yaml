@@ -6,6 +6,10 @@ on:
       version:
         description: "Build Version"
         type: string
+        default: ${{ github.ref }}
+      version-file:
+        description: "Version File"
+        type: string
         default: ""
       name:
         description: "Artifact Name"
@@ -55,9 +59,9 @@ jobs:
           uv sync --locked --all-extras --dev
 
       - name: "Update Version"
-        if: ${{ inputs.version }}
+        if: ${{ inputs.version-file }}
         env:
-          file: src/npmstat/_version.py
+          file: ${{ inputs.version-file }}
           version: ${{ inputs.version }}
         run: |
           sed -i "s/0.0.1/${version}/" "${file}"

@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      version: ${{ github.ref }}
+      version-file: "src/npmstat/_version.py"
 
     permissions:
       contents: read
