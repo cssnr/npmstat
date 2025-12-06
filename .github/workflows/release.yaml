@@ -1,0 +1,94 @@
+name: "Release"
+
+on:
+  release:
+    types: [published]
+
+env:
+  name: "npmstat"
+
+jobs:
+  build:
+    name: "Build"
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+
+    permissions:
+      contents: read
+
+  publish:
+    name: "Publish"
+    uses: ./.github/workflows/publish.yaml
+    needs: [build]
+    secrets: inherit
+    with:
+      package-name: ${{ env.name }}
+
+    permissions:
+      contents: write
+      id-token: write
+
+  release:
+    name: "Release"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [publish]
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: "Debug"
+        continue-on-error: true
+        run: |
+          echo "github.ref_name: ${{ github.ref_name }}"
+          echo "github.event.release.prerelease: ${{ github.event.release.prerelease }}"
+
+      - name: "Debug event.json"
+        continue-on-error: true
+        run: cat "${GITHUB_EVENT_PATH}"
+
+      - name: "Debug CTX github"
+        continue-on-error: true
+        env:
+          GITHUB_CTX: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CTX"
+
+      - name: "Debug Environment"
+        continue-on-error: true
+        run: env
+
+      - name: "Download Artifact"
+        uses: actions/download-artifact@v6
+        with:
+          name: "release"
+          path: "dist"
+
+      - name: "List Artifacts"
+        env:
+          path: "dist"
+          tag: ${{ github.ref_name }}
+        run: |
+          ls -lAh "${path}"
+          find "${path}" | grep -- "-${tag}-" > /dev/null
+
+      - name: "Upload Release"
+        uses: cssnr/upload-release-action@latest
+        with:
+          globs: dist/*
+
+      - name: "Update Release Notes Action"
+        continue-on-error: true
+        uses: smashedr/update-release-notes-action@master
+        with:
+          location: tail
+          pypi: |
+            name: ${{ env.name }}
+            prerelease: ${{ github.event.release.prerelease }}
+
+      - name: "Send Failure Notification"
+        if: ${{ failure() }}
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          description: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
