@@ -26,7 +26,7 @@ Discord = "https://discord.gg/wXy6m2X8wY"
 Documentation = "https://cssnr.github.io/npmstat/"
 Funding = "https://ko-fi.com/cssnr"
 GitHub = "https://github.com/cssnr/npmstat"
-Homepage = "https://cssnr.com/"
+Homepage = "https://cssnr.github.io/"
 Issues = "https://github.com/cssnr/npmstat/issues"
 
 [project.scripts]

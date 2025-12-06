@@ -33,7 +33,7 @@ Get NPM Package Stats and Info.
 
 Includes a command line interface and a Python module.
 
-## Install
+## Install<a id="install"></a>
 
 Install From PyPI: https://pypi.org/p/npmstat
 
@@ -49,7 +49,7 @@ npmstat stats @cssnr/vitepress-swiper
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
 
-## Usage
+## Usage<a id="usage"></a>
 
 To use run `npmstat` from your command line.
 
@@ -74,7 +74,7 @@ options:
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
 
-## Support
+## Support<a id="support"></a>
 
 For general help or to request a feature, see:
 
@@ -88,7 +88,7 @@ If you are experiencing an issue/bug or getting unexpected results, you can:
 - Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=npmstat)
 - Chat with us on Discord: https://discord.gg/wXy6m2X8wY
 
-## Contributing
+## Contributing<a id="contributing"></a>
 
 Contributing and Development docs are in the [CONTRIBUTING.md](#contributing-ov-file).
 
