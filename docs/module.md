@@ -18,7 +18,7 @@ api.session.cache.clear()
 print('cache cleared')
 ```
 
-For more details see the [api.py](#https://github.com/cssnr/npmstat/blob/master/src/npmstat/api.py) source code.
+For more details see the [api.py](https://github.com/cssnr/npmstat/blob/master/src/npmstat/api.py) source code.
 
 !!! warning
 
