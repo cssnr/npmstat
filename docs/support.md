@@ -39,14 +39,8 @@ From here you can contact me directly, `Shane@111150265075298304`.
 
 [:fontawesome-brands-discord: Chat on Discord](https://discord.gg/wXy6m2X8wY){ .md-button .md-button--primary }
 
-## General Feedback
-
-You can submit general feedback via the [web form](https://cssnr.github.io/feedback/?app=npmstat).
-
-_This method is not recommended to [report issues](https://github.com/cssnr/npmstat/issues) or [request features](https://github.com/cssnr/npmstat/discussions/categories/feature-requests)._
-
-[:lucide-send: Send Feedback](https://cssnr.github.io/feedback/?app=npmstat){ .md-button .md-button--primary }
-
 &nbsp;
+
+More information available at: [https://cssnr.com/](https://cssnr.com/)
 
 [![Image title](https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a01c01ea9191809398c_support_me_on_kofi_blue.png){ width="360" }](https://ko-fi.com/cssnr)

@@ -7,52 +7,64 @@ icon: lucide/square-terminal
 To use run `npmstat` from your command line.
 
 ```shell
-npmstat package [GLOBAL-OPTS] [COMMAND] [CMD-OPTS]
+npmstat [COMMAND] [PACKAGE] [OPTIONS]  # (1)!
 ```
+
+1.  View the [commands](#commands) and options below.
 
 Example, get package stats for `@cssnr/vitepress-swiper`.
 
 ```shell
-npmstat @cssnr/vitepress-swiper stats
+npmstat stats @cssnr/vitepress-swiper
 ```
 
-Global options, see `npmsta -h`.
+To see the help use the `[COMMAND] -h` flag.
 
-```text
-usage: npmstat [-h] [-i N] [-v] [-C] [-V] [package] {info,stats} ...
+??? abstract "Global Help Output: `npmstat -h`"
 
-NPM Stat
+    ```text
+    usage: npmstat [-h] [-C] [-V] [command] ...
 
-positional arguments:
-  package            Package name
-  {info,stats}
-    info             get detailed package info
-    stats            get package download stats
+    example: npmstat stats @cssnr/vitepress-swiper
 
-options:
-  -h, --help         show this help message and exit
-  -i N, --indent N   indent level of json, default: 2
-  -v, --verbose      enable verbose command output
-  -C, --clear-cache  clear the request cache and exit
-  -V, --version      show the package version and exit
-```
+    positional arguments:
+      [command]
+        info             get package info
+        stats            get download stats
+
+    options:
+      -h, --help         show this help message and exit
+      -C, --clear-cache  clear the request cache and exit
+      -V, --version      show the package version and exit
+    ```
+
+!!! quote "Output Format"
+
+    Currently all output is in **JSON** format and can be piped directly into `jq`.
 
 ## Commands
 
 Currently, there are 2 available commands, [info](#info) and [stats](#stats).
+
+You can also view the [Examples](#examples) below.
 
 ### info
 
 Get package information. Without a `version` all versions are returned.
 
 ```text
-usage: npmstat package info [-h] [version]
+usage: npmstat info [-h] [-i N] [-v] package [version]
 
 positional arguments:
-  version     Package version
+  package         Package name
+  version         Package version
 
 options:
-  -h, --help  show this help message and exit
+  -h, --help      show this help message and exit
+
+global options:
+  -i, --indent N  indent level of json, default: 2
+  -v, --verbose   enable verbose command output
 ```
 
 ### stats
@@ -60,14 +72,19 @@ options:
 Get package stats for a `period`. The default is `last-day`.
 
 ```text
-usage: npmstat package stats [-h] [-r] [period]
+usage: npmstat stats [-h] [-i N] [-v] [-r] package [period]
 
 positional arguments:
-  period       Package name
+  package         Package name
+  period          Stats period
 
 options:
-  -h, --help   show this help message and exit
-  -r, --range  show a range vs cumulative
+  -h, --help      show this help message and exit
+  -r, --range     show a range vs cumulative
+
+global options:
+  -i, --indent N  indent level of json, default: 2
+  -v, --verbose   enable verbose command output
 ```
 
 **Period Options**
@@ -98,10 +115,10 @@ Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
 
 ## Examples
 
-??? abstract "`npmstat -v @cssnr/vitepress-swiper stats last-week`"
+??? abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
 
     ```shell
-    npmstat -v @cssnr/vitepress-swiper stats last-week
+    npmstat stats -v @cssnr/vitepress-swiper last-week
     ```
 
     ```shell
@@ -118,10 +135,10 @@ Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
     }
     ```
 
-??? abstract "`npmstat -v @cssnr/vitepress-swiper stats last-week -r`"
+??? abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week -r`"
 
     ```shell
-    npmstat -v @cssnr/vitepress-swiper stats last-week -r
+    npmstat stats -v @cssnr/vitepress-swiper last-week -r
     ```
 
     ```shell

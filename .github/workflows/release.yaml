@@ -12,6 +12,8 @@ jobs:
     name: "Build"
     uses: ./.github/workflows/build.yaml
     secrets: inherit
+    with:
+      version-file: "src/npmstat/_version.py"
 
     permissions:
       contents: read
@@ -81,6 +83,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           description: |
+            - ${{ format('https://pypi.org/p/{0}/{1}', env.name, github.ref_name) }}
             - ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
 
   release:

@@ -77,8 +77,6 @@ source = ["src"]
 
 [tool.hatch.version]
 path = "src/npmstat/_version.py"
-expression = "get_version()"
-source = "code"
 
 [tool.hatch.build.targets.sdist]
 include = ["src", "CONTRIBUTING.md"]
