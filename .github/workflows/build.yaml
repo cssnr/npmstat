@@ -3,6 +3,10 @@ name: "Build Package"
 on:
   workflow_call:
     inputs:
+      version:
+        description: "Build Version"
+        type: string
+        default: ""
       name:
         description: "Artifact Name"
         type: string
@@ -51,9 +55,10 @@ jobs:
           uv sync --locked --all-extras --dev
 
       - name: "Update Version"
+        if: ${{ inputs.version }}
         env:
           file: src/npmstat/_version.py
-          version: ${{ github.ref }}
+          version: ${{ inputs.version }}
         run: |
           sed -i "s/0.0.1/${version}/" "${file}"
           cat "${file}"
