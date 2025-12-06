@@ -29,9 +29,7 @@
 - [Support](#support)
 - [Contributing](#contributing)
 
-Get NPM Package Stats and Info.
-
-Includes a command line interface and a Python module.
+Get NPM Package Stats and Info from the command line or as a Python module.
 
 ## Install<a id="install"></a>
 

@@ -21,9 +21,7 @@ icon: lucide/rocket
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
-Get NPM Package Stats and Info.
-
-Includes a [command line interface](cli.md) and a [Python module](module.md).
+Get NPM Package Stats and Info from the [command line](cli.md) or as a [Python module](module.md).
 
 If you run into any issues or have any questions, [support](support.md) is available.
 

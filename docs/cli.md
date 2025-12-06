@@ -10,7 +10,7 @@ To use run `npmstat` from your command line.
 npmstat [COMMAND] [PACKAGE] [OPTIONS]  # (1)!
 ```
 
-1.  View the [commands](#commands) and their options below.
+1.  View the [commands](#commands) and options below.
 
 Example, get package stats for `@cssnr/vitepress-swiper`.
 
@@ -18,9 +18,9 @@ Example, get package stats for `@cssnr/vitepress-swiper`.
 npmstat stats @cssnr/vitepress-swiper
 ```
 
-To see the help use the `-h` flag.
+To see the help use the `[COMMAND] -h` flag.
 
-??? abstract "`npmstat -h`"
+??? abstract "Global Help Output: `npmstat -h`"
 
     ```text
     usage: npmstat [-h] [-C] [-V] [command] ...
@@ -46,7 +46,7 @@ To see the help use the `-h` flag.
 
 Currently, there are 2 available commands, [info](#info) and [stats](#stats).
 
-To see the help use the `[COMMAND] -h` flag.
+You can also view the [Examples](#examples) below.
 
 ### info
 
