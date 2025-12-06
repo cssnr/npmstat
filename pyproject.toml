@@ -1,6 +1,6 @@
 [project]
 name = "npmstat"
-description = "Get NPM Package Stats and Info."
+description = "Get NPM Package Stats and Info from the command line or as a Python module."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT License" }
@@ -26,7 +26,7 @@ Discord = "https://discord.gg/wXy6m2X8wY"
 Documentation = "https://cssnr.github.io/npmstat/"
 Funding = "https://ko-fi.com/cssnr"
 GitHub = "https://github.com/cssnr/npmstat"
-Homepage = "https://cssnr.github.io/"
+Homepage = "https://cssnr.com/"
 Issues = "https://github.com/cssnr/npmstat/issues"
 
 [project.scripts]

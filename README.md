@@ -51,7 +51,7 @@ npmstat @cssnr/vitepress-swiper stats
 
 To use run `npmstat` from your command line.
 
-```shell
+```text
 usage: npmstat [-h] [-C] [-V] [command] ...
 
 example: npmstat stats @cssnr/vitepress-swiper

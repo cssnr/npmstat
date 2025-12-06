@@ -119,7 +119,7 @@ jobs:
       - name: "Download Artifact"
         uses: actions/download-artifact@v6
         with:
-          name: "release"
+          name: "dist"
           path: "dist"
 
       - name: "List Artifacts"
