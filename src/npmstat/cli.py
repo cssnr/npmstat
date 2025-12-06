@@ -9,7 +9,7 @@ from . import __doc__ as package_doc
 from . import api
 
 
-os.system("")
+os.system("")  # nosec
 
 verbose = False
 

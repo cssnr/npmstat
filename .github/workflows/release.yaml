@@ -4,9 +4,6 @@ on:
   release:
     types: [published]
 
-env:
-  name: "npmstat"
-
 jobs:
   build:
     name: "Build"
@@ -22,7 +19,7 @@ jobs:
     needs: [build]
     secrets: inherit
     with:
-      package-name: ${{ env.name }}
+      package-name: "npmstat"
 
     permissions:
       contents: write
@@ -83,7 +80,7 @@ jobs:
         with:
           location: tail
           pypi: |
-            name: ${{ env.name }}
+            name: npmstat
             prerelease: ${{ github.event.release.prerelease }}
 
       - name: "Send Failure Notification"

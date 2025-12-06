@@ -62,9 +62,10 @@ jobs:
       - name: "Install UV"
         uses: astral-sh/setup-uv@v6
 
-      - name: "Install Python"
+      - name: "Install Python ${{ matrix.version }}"
         run: |
-          uv python install --no-config
+          uv python install ${{ matrix.version }}
+          uv venv --no-project --no-config
 
       - name: "Install ${{ matrix.version }}"
         run: |
@@ -73,4 +74,4 @@ jobs:
 
       - name: "Test ${{ matrix.version }}"
         run: |
-          uv run pytest -s
+          pytest -s
