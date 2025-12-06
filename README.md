@@ -54,20 +54,17 @@ npmstat @cssnr/vitepress-swiper stats
 To use run `npmstat` from your command line.
 
 ```shell
-usage: npmstat [-h] [-i N] [-v] [-C] [-V] [package] {info,stats} ...
+usage: npmstat [-h] [-C] [-V] [command] ...
 
-NPM Stat
+example: npmstat stats @cssnr/vitepress-swiper
 
 positional arguments:
-  package            Package name
-  {info,stats}
-    info             get detailed package info
-    stats            get package download stats
+  [command]
+    info             get package info
+    stats            get download stats
 
 options:
   -h, --help         show this help message and exit
-  -i N, --indent N   indent level of json, default: 2
-  -v, --verbose      enable verbose command output
   -C, --clear-cache  clear the request cache and exit
   -V, --version      show the package version and exit
 ```

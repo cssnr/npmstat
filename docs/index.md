@@ -79,7 +79,7 @@ python -m pip uninstall npmstat
 - From the command line run.
 
 ```shell
-npmstat @cssnr/vitepress-swiper stats
+npmstat stats @cssnr/vitepress-swiper
 ```
 
 :lucide-square-terminal: View the [CLI Documentation](cli.md) for more details.

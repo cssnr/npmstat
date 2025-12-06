@@ -1,6 +1,6 @@
 [project]
 site_name = "NPM Stat"
-site_description = "Get NPM Package Stats and Info."
+site_description = "Get NPM Package Stats and Info with a CLI or Python module."
 site_author = "Shane"
 repo_name = "cssnr/npmstat"
 repo_url = "https://github.com/cssnr/npmstat"

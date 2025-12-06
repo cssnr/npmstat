@@ -27,11 +27,13 @@ Note: uv `sync` installs all dependencies and the project as an editable.
 
 ## Build
 
-This project is using Hatchling.
+This project is using Hatchling and GitHub actions.
 
 ```shell
 uv run hatch build
 ```
+
+The version is set from the release tag in the [release.yaml](.github/workflows/release.yaml).
 
 - Hatch: https://hatch.pypa.io/latest/
 

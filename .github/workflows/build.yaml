@@ -50,6 +50,14 @@ jobs:
         run: |
           uv sync --locked --all-extras --dev
 
+      - name: "Update Version"
+        env:
+          file: src/npmstat/_version.py
+          version: ${{ github.ref }}
+        run: |
+          sed -i "s/0.0.1/${version}/" "${file}"
+          cat "${file}"
+
       - name: "Build"
         run: |
           uv run hatch build
