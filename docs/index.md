@@ -10,6 +10,7 @@ icon: lucide/rocket
 [![TOML Python Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcssnr%2Fnpmstat%2Frefs%2Fheads%2Fmaster%2Fpyproject.toml&query=%24.project.requires-python&logo=python&logoColor=white&label=python)](https://github.com/cssnr/npmstat?tab=readme-ov-file#readme)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/npmstat?logo=pypi&logoColor=white)](https://pypistats.org/packages/npmstat)
 [![Pepy Total Downloads](https://img.shields.io/pepy/dt/npmstat?logo=pypi&logoColor=white&label=total)](https://clickpy.clickhouse.com/dashboard/npmstat)
+[![Codecov](https://codecov.io/gh/cssnr/npmstat/graph/badge.svg?token=A8NDHZ393X)](https://codecov.io/gh/cssnr/npmstat)
 [![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/npmstat/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/npmstat/actions/workflows/test.yaml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/npmstat?logo=github&label=updated)](https://github.com/cssnr/npmstat/pulse)
 [![GitHub Issues](https://img.shields.io/github/issues/cssnr/npmstat?logo=github)](https://github.com/cssnr/npmstat/issues)
@@ -75,7 +76,7 @@ python -m pip uninstall npmstat
 
 ## Usage
 
-- From the command line run:
+- From the command line run.
 
 ```shell
 npmstat @cssnr/vitepress-swiper stats
@@ -88,8 +89,8 @@ npmstat @cssnr/vitepress-swiper stats
 ```python
 from npmstat import api
 
-r = api.get_downloads('@cssnr/vitepress-swiper')
-print(r.json())
+downloads = api.get_downloads('@cssnr/vitepress-swiper')
+print(downloads.json())
 ```
 
 :fontawesome-brands-python: View the [Module Documentation](module.md) for more details.

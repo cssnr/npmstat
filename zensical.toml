@@ -21,7 +21,7 @@ nav = [
   { "Support" = "support.md" },
 ]
 # https://zensical.org/docs/customization/#additional-css
-# extra_css = ["assets/stylesheets/extra.css"]
+# extra_css = ["assets/css/extra.css"]
 # https://zensical.org/docs/customization/#additional-javascript
 extra_javascript = ["assets/js/external-links.js"]
 

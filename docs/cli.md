@@ -57,7 +57,7 @@ options:
 
 ### stats
 
-Get package stats for a [period](#period). The default is `last-day`.
+Get package stats for a `period`. The default is `last-day`.
 
 ```text
 usage: npmstat package stats [-h] [-r] [period]
@@ -70,7 +70,7 @@ options:
   -r, --range  show a range vs cumulative
 ```
 
-#### period
+**Period Options**
 
 To print individual stats for each day use the `-r` flag.
 
@@ -79,10 +79,22 @@ To print individual stats for each day use the `-r` flag.
 | `last-day`              | Last Day    |
 | `last-week`             | Last Week   |
 | `last-month`            | Last Month  |
-| `2025-01-21`            | A Day       |
-| `2025-01-14:2023-02-21` | A Day Range |
+| `2025-01-21`            | Single Day  |
+| `2025-01-14:2023-02-21` | Date Range  |
 
 Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
+
+## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
+
+Supports tab auto-complete when using the CLI.
+
+After [installing](index.md#install) run.
+
+```shell
+activate-global-python-argcomplete
+```
+
+Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
 
 ## Examples
 
