@@ -6,7 +6,7 @@ on:
       version:
         description: "Build Version"
         type: string
-        default: ${{ github.ref }}
+        default: ${{ github.ref_name }}
       version-file:
         description: "Version File"
         type: string
