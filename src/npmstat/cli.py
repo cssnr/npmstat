@@ -19,7 +19,7 @@ def run():
     parser = argparse.ArgumentParser(
         prog="npmstat",
         description="example: npmstat stats @cssnr/vitepress-swiper",
-        epilog="https://cssnr.github.io/npmstat/",
+        epilog="Docs: https://cssnr.github.io/npmstat/",
     )
     # root
     parser.add_argument("-C", "--clear-cache", action="store_true", help="clear the request cache and exit")

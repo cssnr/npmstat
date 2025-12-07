@@ -34,7 +34,7 @@ Get NPM Package Stats and Info from the command line or as a Python module.
 
 ## Install<a id="install"></a>
 
-Install From PyPI: https://pypi.org/p/npmstat
+Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
 python -m pip install npmstat
@@ -74,15 +74,15 @@ options:
 
 For general help or to request a feature, see:
 
-- Q&A Discussion: https://github.com/cssnr/npmstat/discussions/categories/q-a
-- Request a Feature: https://github.com/cssnr/npmstat/discussions/categories/feature-requests
-- Chat with us on Discord: https://discord.gg/wXy6m2X8wY
+- Q&A Discussion: <https://github.com/cssnr/npmstat/discussions/categories/q-a>
+- Request a Feature: <https://github.com/cssnr/npmstat/discussions/categories/feature-requests>
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 If you are experiencing an issue/bug or getting unexpected results, you can:
 
-- Report an Issue: https://github.com/cssnr/npmstat/issues
+- Report an Issue: <https://github.com/cssnr/npmstat/issues>
 - Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=npmstat)
-- Chat with us on Discord: https://discord.gg/wXy6m2X8wY
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 ## Contributing<a id="contributing"></a>
 
