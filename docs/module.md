@@ -4,12 +4,23 @@ icon: fontawesome/brands/python
 
 # :fontawesome-brands-python: Python Module
 
-You can import the methods directly.
+You can import the module directly.
+
+```python
+import npmstat
+
+r = npmstat.get_package('@cssnr/vitepress-swiper')
+print(f'cached: {r.from_cache}')
+print(r.json())
+```
+
+Or import the api directly.
 
 ```python
 from npmstat import api
 
-r = api.get_package('package')
+
+r = api.get_downloads('@cssnr/vitepress-swiper', 'last-week')
 print(f'cached: {r.from_cache}')
 print(r.json())
 

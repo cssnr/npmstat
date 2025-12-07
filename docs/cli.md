@@ -53,18 +53,20 @@ You can also view the [Examples](#examples) below.
 Get package information. Without a `version` all versions are returned.
 
 ```text
-usage: npmstat info [-h] [-i N] [-v] package [version]
+usage: npmstat info [-h] [-i N] [-p] [-f] [-v] package [version]
 
 positional arguments:
-  package         Package name
-  version         Package version
+  package            Package name
+  version            Package version
 
 options:
-  -h, --help      show this help message and exit
+  -h, --help         show this help message and exit
 
 global options:
-  -i, --indent N  indent level of json, default: 2
-  -v, --verbose   enable verbose command output
+  -i, --indent N     indent level of json, default: 2
+  -p, --purge        purge cache for this request
+  -f, --force-purge  force purge for this request
+  -v, --verbose      enable verbose command output
 ```
 
 ### stats
@@ -72,19 +74,21 @@ global options:
 Get package stats for a `period`. The default is `last-day`.
 
 ```text
-usage: npmstat stats [-h] [-i N] [-v] [-r] package [period]
+usage: npmstat stats [-h] [-i N] [-p] [-f] [-v] [-r] package [period]
 
 positional arguments:
-  package         Package name
-  period          Stats period
+  package            Package name
+  period             Stats period
 
 options:
-  -h, --help      show this help message and exit
-  -r, --range     show a range vs cumulative
+  -h, --help         show this help message and exit
+  -r, --range        show a range vs cumulative
 
 global options:
-  -i, --indent N  indent level of json, default: 2
-  -v, --verbose   enable verbose command output
+  -i, --indent N     indent level of json, default: 2
+  -p, --purge        purge cache for this request
+  -f, --force-purge  force purge for this request
+  -v, --verbose      enable verbose command output
 ```
 
 **Period Options**
@@ -101,21 +105,9 @@ To print individual stats for each day use the `-r` flag.
 
 Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
-## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
-
-Supports tab auto-complete when using the CLI.
-
-After [installing](index.md#install) run.
-
-```shell
-activate-global-python-argcomplete
-```
-
-Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
-
 ## Examples
 
-??? abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
+???+ abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
 
     ```shell
     npmstat stats -v @cssnr/vitepress-swiper last-week
@@ -183,6 +175,31 @@ Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
       ]
     }
     ```
+
+??? abstract "`npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'`"
+
+    ```shell
+    npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'
+    ```
+
+    ```json
+    {
+      "vue": "^3.0.0",
+      "vitepress": "^1.0.0"
+    }
+    ```
+
+## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
+
+Supports tab auto-complete when using the CLI.
+
+After [installing](index.md#install) run.
+
+```shell
+activate-global-python-argcomplete
+```
+
+Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
 
 &nbsp;
 

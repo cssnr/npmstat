@@ -9,6 +9,7 @@
 [![Deployment PyPi](https://img.shields.io/github/deployments/cssnr/npmstat/pypi?logo=pypi&logoColor=white&label=pypi)](https://pypi.org/project/npmstat/)
 [![Deployment Docs](https://img.shields.io/github/deployments/cssnr/npmstat/docs?logo=materialformkdocs&logoColor=white&label=docs)](https://cssnr.github.io/npmstat/)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/npmstat?logo=github&label=updated)](https://github.com/cssnr/npmstat/pulse)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/npmstat?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/npmstat)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/npmstat?logo=htmx&logoColor=white)](https://github.com/cssnr/npmstat?tab=readme-ov-file#readme)
 [![GitHub Contributors](https://img.shields.io/github/contributors-anon/cssnr/npmstat?logo=github)](https://github.com/cssnr/npmstat/graphs/contributors)
 [![GitHub Issues](https://img.shields.io/github/issues/cssnr/npmstat?logo=github)](https://github.com/cssnr/npmstat/issues)
@@ -22,7 +23,7 @@
 # NPM Stat
 
 <a title="NPM Stat" href="https://cssnr.github.io/npmstat/" target="_blank">
-<img alt="NPM Stat" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/npmstat/logo.png"></a>
+<img alt="NPM Stat" align="right" width="128" height="auto" src="https://cssnr.github.io/npmstat/assets/images/logo.svg"></a>
 
 - [Install](#install)
 - [Usage](#usage)
@@ -33,7 +34,7 @@ Get NPM Package Stats and Info from the command line or as a Python module.
 
 ## Install<a id="install"></a>
 
-Install From PyPI: https://pypi.org/p/npmstat
+Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
 python -m pip install npmstat
@@ -73,15 +74,15 @@ options:
 
 For general help or to request a feature, see:
 
-- Q&A Discussion: https://github.com/cssnr/npmstat/discussions/categories/q-a
-- Request a Feature: https://github.com/cssnr/npmstat/discussions/categories/feature-requests
-- Chat with us on Discord: https://discord.gg/wXy6m2X8wY
+- Q&A Discussion: <https://github.com/cssnr/npmstat/discussions/categories/q-a>
+- Request a Feature: <https://github.com/cssnr/npmstat/discussions/categories/feature-requests>
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 If you are experiencing an issue/bug or getting unexpected results, you can:
 
-- Report an Issue: https://github.com/cssnr/npmstat/issues
+- Report an Issue: <https://github.com/cssnr/npmstat/issues>
 - Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=npmstat)
-- Chat with us on Discord: https://discord.gg/wXy6m2X8wY
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 ## Contributing<a id="contributing"></a>
 

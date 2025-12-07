@@ -141,7 +141,7 @@ jobs:
         with:
           location: tail
           pypi: |
-            name: npmstat
+            name: ${{ env.name }}
             prerelease: ${{ github.event.release.prerelease }}
 
       - name: "Send Failure Notification"
