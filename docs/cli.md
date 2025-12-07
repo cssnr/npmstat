@@ -191,13 +191,15 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
 
-Supports tab auto-complete when using the CLI.
+Bash and Zsh support tab auto-complete for arguments on the CLI.
 
 After [installing](index.md#install) run.
 
 ```shell
 activate-global-python-argcomplete
 ```
+
+Then restart your shell.
 
 Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
 
