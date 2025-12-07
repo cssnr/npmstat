@@ -107,7 +107,7 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Examples
 
-??? abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
+???+ abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
 
     ```shell
     npmstat stats -v @cssnr/vitepress-swiper last-week
@@ -173,6 +173,19 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
           "day": "2025-12-04"
         }
       ]
+    }
+    ```
+
+??? abstract "`npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'`"
+
+    ```shell
+    npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'
+    ```
+
+    ```json
+    {
+      "vue": "^3.0.0",
+      "vitepress": "^1.0.0"
     }
     ```
 
