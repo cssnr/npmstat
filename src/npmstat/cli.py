@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# PYTHON_ARGCOMPLETE_OK
 import argparse
 import json
 import os
@@ -10,12 +12,13 @@ from . import api
 from ._version import __version__
 
 
-os.system("")  # nosec
-
 _verbose = False
 
 
 def run():
+    if os.name == "nt":
+        os.system("")  # nosec
+
     parser = argparse.ArgumentParser(
         prog="npmstat",
         description="example: npmstat stats @cssnr/vitepress-swiper",
