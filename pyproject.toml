@@ -14,9 +14,9 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "argcomplete>=3.6.3",
-  "requests>=2.32.5",
-  "requests-cache>=1.2.1",
+  "argcomplete>=3,<4",
+  "requests>=2,<3",
+  "requests-cache>=1,<2",
 ]
 dynamic = ["version"]
 
