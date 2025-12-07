@@ -14,4 +14,4 @@ dist/
 .coverage
 coverage.xml
 # Zensical
-site/
+/site/
