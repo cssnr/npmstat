@@ -38,6 +38,8 @@ To see the help use the `[COMMAND] -h` flag.
       -V, --version      show the package version and exit
     ```
 
+To enable tab-completion follow the [Autocomplete](#autocomplete) instructions.
+
 !!! quote "Output Format"
 
     Currently all output is in **JSON** format and can be piped directly into `jq`.
@@ -191,13 +193,27 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
 
-Bash and Zsh support tab auto-complete for arguments on the CLI.
+Bash/Zsh, Windows, and Fish support tab auto-complete for arguments.
 
-After [installing](index.md#install) run.
+After [installing](index.md#install) run one of the following commands.
 
-```shell
-activate-global-python-argcomplete
-```
+=== "Bash/Zsh"
+
+    ```shell
+    activate-global-python-argcomplete
+    ```
+
+=== "Windows"
+
+    ```shell
+    register-python-argcomplete --shell powershell npmstat | Out-String | Invoke-Expression
+    ```
+
+=== "Fish"
+
+    ```shell
+    register-python-argcomplete --shell fish my-awesome-script | source
+    ```
 
 Then restart your shell.
 
