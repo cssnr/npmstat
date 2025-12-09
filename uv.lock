@@ -940,6 +940,7 @@ dev = [
     { name = "ruff" },
     { name = "tombi" },
     { name = "ty" },
+    { name = "typer" },
     { name = "types-requests" },
     { name = "validate-pyproject", extra = ["all"] },
 ]
@@ -963,6 +964,7 @@ dev = [
     { name = "ruff", specifier = ">=0.14.7" },
     { name = "tombi", specifier = ">=0.7.3" },
     { name = "ty", specifier = ">=0.0.1a30" },
+    { name = "typer", specifier = ">=0.20.0" },
     { name = "types-requests", specifier = ">=2.32.4.20250913" },
     { name = "validate-pyproject", extras = ["all"], specifier = ">=0.24.1" },
 ]
