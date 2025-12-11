@@ -9,11 +9,10 @@ __pycache__/
 build/
 dist/
 .*cache/
-/.*cache*
 *.log
 *.pyc
 .coverage
 coverage.xml
-# Zensical
+# App
 /site/
 /test*.*
