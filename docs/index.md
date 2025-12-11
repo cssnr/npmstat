@@ -87,7 +87,7 @@ npmstat stats @cssnr/vitepress-swiper
 ```python
 from npmstat import api
 
-downloads = api.get_downloads('@cssnr/vitepress-swiper')
+downloads = api.get_downloads("@cssnr/vitepress-swiper")
 print(downloads.json())
 ```
 
