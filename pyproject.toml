@@ -14,9 +14,9 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "argcomplete>=3,<4",
   "requests>=2,<3",
   "requests-cache>=1,<2",
+  "typer>=0.20.0",
 ]
 dynamic = ["version"]
 
@@ -30,7 +30,7 @@ Homepage = "https://cssnr.com/"
 Issues = "https://github.com/cssnr/npmstat/issues"
 
 [project.scripts]
-npmstat = "npmstat.cli:main"
+npmstat = "npmstat.cli:app"
 
 [dependency-groups]
 dev = [
@@ -44,6 +44,7 @@ dev = [
   "ruff>=0.14.7",
   "tombi>=0.7.3",
   "ty>=0.0.1a30",
+  "typer>=0.20.0",
   "types-requests>=2.32.4.20250913",
   "validate-pyproject[all]>=0.24.1",
 ]

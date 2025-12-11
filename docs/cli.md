@@ -23,19 +23,27 @@ To see the help use the `[COMMAND] -h` flag.
 ??? abstract "Global Help Output: `npmstat -h`"
 
     ```text
-    usage: npmstat [-h] [-C] [-V] [command] ...
+    Usage: npmstat [OPTIONS] COMMAND [ARGS]...
 
-    example: npmstat stats @cssnr/vitepress-swiper
+    NPM Stat CLI
 
-    positional arguments:
-      [command]
-        info             get package info
-        stats            get download stats
+    Example: npmstat -v stats @cssnr/vitepress-swiper
 
-    options:
-      -h, --help         show this help message and exit
-      -C, --clear-cache  clear the request cache and exit
-      -V, --version      show the package version and exit
+    ┌─ Options ──────────────────────────────────────────────────────────┐
+    │ --verbose             -v        Verbose Output (jq safe).     │
+    │ --version             -V        Show App Version.             │
+    │ --clear-cache         -C        Clear Request Cache.          │
+    │ --install-completion            Install completion for the    │
+    │                                 current shell.                │
+    │ --show-completion               Show completion for the       │
+    │                                 current shell, to copy it or  │
+    │                                 customize the installation.   │
+    │ --help                -h        Show this message and exit.   │
+    └─────────────────────────────────────────────────────────────────────┘
+    ┌─ Commands ─────────────────────────────────────────────────────────┐
+    │ info    Get Package Information.                              │
+    │ stats   Get Package Download Stats.                           │
+    └─────────────────────────────────────────────────────────────────────┘
     ```
 
 To enable tab-completion follow the [Autocomplete](#autocomplete) instructions.
@@ -55,43 +63,45 @@ You can also view the [Examples](#examples) below.
 Get package information. Without a `version` all versions are returned.
 
 ```text
-usage: npmstat info [-h] [-i N] [-p] [-f] [-v] package [version]
+ Get Package Information.
 
-positional arguments:
-  package            Package name
-  version            Package version
-
-options:
-  -h, --help         show this help message and exit
-
-global options:
-  -i, --indent N     indent level of json, default: 2
-  -p, --purge        purge cache for this request
-  -f, --force-purge  force purge for this request
-  -v, --verbose      enable verbose command output
+┌─ Arguments ────────────────────────────────────────────────────────┐
+│ *    package      TEXT       NPM Package Name. [required]     │
+│      version      [VERSION]  Package Version                  │
+└─────────────────────────────────────────────────────────────────────┘
+┌─ Options ──────────────────────────────────────────────────────────┐
+│ --indent       -i      INTEGER  JSON Indent. [default: 2]     │
+│ --purge        -p               Purge Cache for Request.      │
+│ --force-purge  -f               Force Purge for Request.      │
+│ --help         -h               Show this message and exit.   │
+└─────────────────────────────────────────────────────────────────────┘
 ```
+
+!!! tip "In the terminal output is scaled and displays properly."
 
 ### stats
 
 Get package stats for a `period`. The default is `last-day`.
 
 ```text
-usage: npmstat stats [-h] [-i N] [-p] [-f] [-v] [-r] package [period]
+ Usage: npmstat stats [OPTIONS] PACKAGE [PERIOD]
 
-positional arguments:
-  package            Package name
-  period             Stats period
+ Get Package Download Stats.
 
-options:
-  -h, --help         show this help message and exit
-  -r, --range        show a range vs cumulative
-
-global options:
-  -i, --indent N     indent level of json, default: 2
-  -p, --purge        purge cache for this request
-  -f, --force-purge  force purge for this request
-  -v, --verbose      enable verbose command output
+┌─ Arguments ────────────────────────────────────────────────────────┐
+│ *    package      TEXT      NPM Package Name. [required]      │
+│      period       [PERIOD]  Stats Period. [default: last-day] │
+└─────────────────────────────────────────────────────────────────────┘
+┌─ Options ──────────────────────────────────────────────────────────┐
+│ --range        -r               Get Range.                    │
+│ --indent       -i      INTEGER  JSON Indent. [default: 2]     │
+│ --purge        -p               Purge Cache for Request.      │
+│ --force-purge  -f               Force Purge for Request.      │
+│ --help         -h               Show this message and exit.   │
+└─────────────────────────────────────────────────────────────────────┘
 ```
+
+!!! tip "In the terminal output is scaled and displays properly."
 
 **Period Options**
 
@@ -193,31 +203,17 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
 
-Bash/Zsh, Windows, and Fish support tab auto-complete for arguments.
+Shell autocomplete support is provided by [click](https://github.com/pallets/click).
 
-After [installing](index.md#install) run one of the following commands.
+After [installing](index.md#install) run the following command.
 
-=== "Bash/Zsh"
-
-    ```shell
-    activate-global-python-argcomplete
-    ```
-
-=== "Windows"
-
-    ```shell
-    register-python-argcomplete --shell powershell npmstat | Out-String | Invoke-Expression
-    ```
-
-=== "Fish"
-
-    ```shell
-    register-python-argcomplete --shell fish my-awesome-script | source
-    ```
+```shell
+npmstat --install-completion
+```
 
 Then restart your shell.
 
-Reference: https://kislyuk.github.io/argcomplete/#activating-global-completion
+Reference: https://click.palletsprojects.com/en/stable/shell-completion/
 
 &nbsp;
 

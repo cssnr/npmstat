@@ -9,8 +9,8 @@ You can import the module directly.
 ```python
 import npmstat
 
-r = npmstat.get_package('@cssnr/vitepress-swiper')
-print(f'cached: {r.from_cache}')
+r = npmstat.get_package("@cssnr/vitepress-swiper")
+print(f"{r.from_cache=}")
 print(r.json())
 ```
 
@@ -19,21 +19,17 @@ Or import the api directly.
 ```python
 from npmstat import api
 
-
-r = api.get_downloads('@cssnr/vitepress-swiper', 'last-week')
-print(f'cached: {r.from_cache}')
+r = api.get_downloads("@cssnr/vitepress-swiper", "last-week")
+print(f"{r.from_cache=}")
 print(r.json())
 
-
 api.session.cache.clear()
-print('cache cleared')
+print("cache cleared")
 ```
 
 For more details see the [api.py](https://github.com/cssnr/npmstat/blob/master/src/npmstat/api.py) source code.
 
-!!! warning
-
-    This API is incomplete and expected to change in the future.
+!!! warning "This API is incomplete and may change in the future."
 
 &nbsp;
 

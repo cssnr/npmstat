@@ -13,5 +13,6 @@ dist/
 *.pyc
 .coverage
 coverage.xml
-# Zensical
+# App
 /site/
+/test*.*
