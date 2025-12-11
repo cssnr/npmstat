@@ -1,5 +1,5 @@
 import sys
-from typing import Optional
+from typing import Any, Optional
 
 import typer
 from rich import print, print_json
@@ -10,14 +10,19 @@ from . import api
 from ._version import __version__
 
 
-app = typer.Typer(no_args_is_help=True)
+context_settings = {
+    "help_option_names": ["-h", "--help"],
+    # "ignore_unknown_options": True,
+}
+
+app = typer.Typer(context_settings=context_settings)
 
 state = {"verbose": False}
 
 
-def vprint(*objects: str):
+def vprint(*objects: Any, **kwargs):
     if state.get("verbose"):
-        print(*objects, file=sys.stderr)
+        print(*objects, file=sys.stderr, **kwargs)
 
 
 def version_callback(value: bool):
@@ -34,28 +39,23 @@ def clear_cache_callback(value: bool):
         raise typer.Exit()
 
 
-@app.command()
+@app.command(no_args_is_help=True, epilog="Docs: https://cssnr.github.io/npmstat/cli/#info")
 def info(
-    package: Annotated[str, typer.Argument(help="NPM Package Name")],
+    package: Annotated[str, typer.Argument(help="NPM Package Name.")],
     version: Annotated[Optional[str], typer.Argument(help="Package Version")] = None,
     _indent: Annotated[Optional[int], typer.Option("-i", "--indent", help="JSON Indent.")] = 2,
     _purge: Annotated[Optional[bool], typer.Option("-p", "--purge", help="Purge Cache for Request.")] = False,
     _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
 ):
     """Get Package Information."""
-    vprint(f"package: {package}")
-    vprint(f"version: {version}")
-    vprint(f"_indent: {_indent}")
-    vprint(f"_purge: {_purge}")
-    vprint(f"_force: {_force}")
+    vprint(f"{package=}", f"{version=}", f"{_indent=}", f"{_purge=}", f"{_force=}", sep="\n")
     r = api.get_package(package, version)
-    vprint(f"url: {r.url}")
-    vprint(f"from_cache: {r.from_cache}")
+    vprint(f"{r.url=}", f"{r.from_cache=}", sep="\n")
     data = r.json()
     print_json(data=data, indent=_indent or None)
 
 
-@app.command()
+@app.command(no_args_is_help=True, epilog="Docs: https://cssnr.github.io/npmstat/cli/#stats")
 def stats(
     package: Annotated[str, typer.Argument(help="NPM Package Name.")],
     period: Annotated[str, typer.Argument(help="Stats Period.")] = "last-day",
@@ -65,20 +65,14 @@ def stats(
     _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
 ):
     """Get Package Download Stats."""
-    vprint(f"package: {package}")
-    vprint(f"period: {period}")
-    vprint(f"_range: {_range}")
-    vprint(f"_indent: {_indent}")
-    vprint(f"_purge: {_purge}")
-    vprint(f"_force: {_force}")
+    vprint(f"{package=}", f"{period=}", f"{_range=}", f"{_indent=}", f"{_purge=}", f"{_force=}", sep="\n")
     r = api.get_downloads(package, period, get_range=_range)
-    vprint(f"url: {r.url}")
-    vprint(f"from_cache: {r.from_cache}")
+    vprint(f"{r.url=}", f"{r.from_cache=}", sep="\n")
     data = r.json()
     print_json(data=data, indent=_indent or None)
 
 
-@app.callback(epilog="Docs: https://cssnr.github.io/npmstat/")
+@app.callback(no_args_is_help=True, epilog="Docs: https://cssnr.github.io/npmstat/cli/")
 def main(
     _verbose: Annotated[Optional[bool], typer.Option("-v", "--verbose", help="Verbose Output (jq safe).")] = False,
     _version: Annotated[
@@ -91,7 +85,7 @@ def main(
     """
     NPM Stat CLI
 
-    Example: npmstat stats @cssnr/vitepress-swiper
+    Example: npmstat -v stats @cssnr/vitepress-swiper
     """
     if _verbose:
         state["verbose"] = _verbose
