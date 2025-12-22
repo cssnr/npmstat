@@ -35,16 +35,17 @@ npmstat = "npmstat.cli:app"
 [dependency-groups]
 dev = [
   "bandit>=1.9.2",
-  "black>=25.11.0",
-  "coverage>=7.12.0",
-  "hatch>=1.16.1",
+  "black>=25.12.0",
+  "coverage>=7.13.0",
+  "hatch>=1.16.2",
   "isort>=7.0.0",
-  "mypy>=1.19.0",
-  "pytest>=9.0.1",
-  "ruff>=0.14.7",
-  "tombi>=0.7.3",
-  "ty>=0.0.1a30",
-  "typer>=0.20.0",
+  "mypy>=1.19.1",
+  "pytest>=9.0.2",
+  "ruff>=0.14.10",
+  "tombi>=0.7.9",
+  "toml-run>=0.0.2",
+  "ty>=0.0.5",
+  "typer>=0.20.1",
   "types-requests>=2.32.4.20250913",
   "validate-pyproject[all]>=0.24.1",
 ]
@@ -63,6 +64,7 @@ build-backend = "hatchling.build"
 [tool.bandit]
 exclude_dirs = [".venv"]
 skips = ["B105", "B107"]
+assert_used = { skips = ["*test_*.py"] }
 
 # Black
 # https://black.readthedocs.io/en/stable/usage_and_configuration/
@@ -105,3 +107,26 @@ extend-exclude = [".github"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "B", "Q"]
+
+[tool.scripts]
+test = ["coverage run -m pytest", "coverage report -m"]
+build = "uv run hatch build"
+predocs = "rm -rf .cache site"
+docs = "zensical serve --open"
+docs-build = "zensical build --clean"
+format = ["black .", "tombi format .", "ruff format ."]
+lint = """
+black --check .
+run bandit
+run mypy
+run ruff
+run validate
+run yamllint
+tombi lint .
+ty check -v .
+"""
+bandit = "bandit -c pyproject.toml -r ."
+mypy = "mypy ."
+ruff = "ruff check ."
+validate = "validate-pyproject pyproject.toml"
+yamllint = "yamllint -c .github/yamllint.yaml ."
