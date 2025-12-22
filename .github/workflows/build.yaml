@@ -48,7 +48,7 @@ jobs:
         run: env
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
 
       - name: "Install Python 3.13"
         run: |
@@ -59,22 +59,25 @@ jobs:
           uv sync --locked --all-extras --dev
 
       - name: "Update Version"
-        if: ${{ inputs.version-file }}
-        env:
-          file: ${{ inputs.version-file }}
+        uses: justalemon/VersionPatcher@master
+        with:
           version: ${{ inputs.version }}
+          initpy-files: ${{ inputs.version-file }}
+
+      - name: "Debug Version"
+        continue-on-error: true
         run: |
-          sed -i "s/0.0.1/${version}/" "${file}"
-          cat "${file}"
+          cat ${{ inputs.version-file }}
 
       - name: "Build"
         run: |
           uv run hatch build
 
       - name: "List Artifacts"
+        continue-on-error: true
         working-directory: ${{ inputs.path }}
         run: |
-          results="$(tree . || ls -lAhR .)"
+          results="$(tree .)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
@@ -89,7 +92,7 @@ jobs:
 
       - name: "Send Failure Notification"
         if: ${{ failure() }}
-        uses: sarisia/actions-status-discord@v1
+        uses: sarisia/actions-status-discord@b8381b25576cb341b2af39926ab42c5056cc44ed # v1.15.5
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           description: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}

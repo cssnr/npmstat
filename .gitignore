@@ -9,6 +9,7 @@ __pycache__/
 build/
 dist/
 .*cache/
+/.*cache*
 *.log
 *.pyc
 .coverage
