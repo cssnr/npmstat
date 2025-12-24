@@ -86,9 +86,10 @@ jobs:
         if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
         shell: bash
         run: |
-          uv run pyivf-make_version --source-format yaml \
-            --metadata-source "${{ inputs.windows-file }}" \
-            --outfile win-version.txt --version "0.${{ inputs.version }}"
+          #uv run pyivf-make_version --source-format yaml \
+          #  --metadata-source "${{ inputs.windows-file }}" \
+          #  --outfile win-version.txt --version "0.${{ inputs.version }}"
+          uvx toml-run win-version
 
       - name: "Debug Windows Version"
         if: ${{ matrix.os == 'windows-latest' }}
@@ -100,7 +101,8 @@ jobs:
       - name: "Build"
         shell: bash
         run: |
-          uv run pyinstaller -F -n sharex -i docs/favicon.ico ${{ matrix.extra-args }} ${{ inputs.source-file }}
+          #uv run pyinstaller -F -n npmstat -i docs/favicon.ico ${{ matrix.extra-args }} ${{ inputs.source-file }}
+          uvx toml-run pyinstaller -- ${{ matrix.extra-args }}
 
       - name: "List Artifacts"
         continue-on-error: true
@@ -115,6 +117,7 @@ jobs:
           echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
 
       - name: "Archive Release"
+        if: ${{ github.event_name == 'release' }}
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: zip
@@ -126,7 +129,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.name }}
-          path: "dist"
+          path: dist
 
       - name: "Upload Release"
         if: ${{ github.event_name == 'release' }}
