@@ -76,13 +76,14 @@ jobs:
           initpy-files: ${{ inputs.version-file }}
 
       - name: "Debug Version"
-        if: ${{ matrix.os == 'windows-latest' }}
         continue-on-error: true
         shell: bash
         run: |
           cat ${{ inputs.version-file }}
 
       - name: "Version"
+        # Note: packaging is not available on macos-latest by default
+        if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
         id: version
         shell: python
         run: |
@@ -128,6 +129,13 @@ jobs:
           md="Artifacts: \`${{ matrix.os }}\`\n\`\`\`text\n${results}\n\`\`\`"
           echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: "Upload to Actions"
+        if: ${{ github.event_name != 'release' }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: ${{ matrix.name }}
+          path: dist
+
       - name: "Archive Release"
         if: ${{ github.event_name == 'release' }}
         uses: thedoctor0/zip-release@0.7.5
@@ -135,13 +143,6 @@ jobs:
           type: zip
           directory: dist
           filename: "${{ matrix.name }}.zip"
-
-      - name: "Upload to Actions"
-        if: ${{ github.event_name != 'release' }}
-        uses: actions/upload-artifact@v5
-        with:
-          name: ${{ matrix.name }}
-          path: dist
 
       - name: "Upload Release"
         if: ${{ github.event_name == 'release' }}
