@@ -107,7 +107,7 @@ jobs:
         working-directory: dist
         shell: bash
         run: |
-          results="$(file *)"
+          results="$(file -- *)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
