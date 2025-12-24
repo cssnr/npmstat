@@ -89,7 +89,7 @@ jobs:
           #uv run pyivf-make_version --source-format yaml \
           #  --metadata-source "${{ inputs.windows-file }}" \
           #  --outfile win-version.txt --version "0.${{ inputs.version }}"
-          uvx toml-run win-version
+          uvx toml-run win-version -- --version "0.${{ inputs.version }}"
 
       - name: "Debug Windows Version"
         if: ${{ matrix.os == 'windows-latest' }}
