@@ -89,19 +89,17 @@ jobs:
           import os
           from packaging.version import Version
           version = Version('${{ inputs.version }}')
-          try:
-              pre_number = version.pre[1] if version.pre else 0
-          except Exception as e:
-              pre_number = 0
+          print(f"{version.base_version=}")
+          pre_number = version.pre[1] if version.pre else 0
           print(f"{pre_number=}")
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write(f"pre_number={pre_number}\n")
               f.write(f"base_version={version.base_version}\n")
+              f.write(f"pre_number={pre_number}\n")
 
       - name: "Windows Version"
         if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
         env:
-          version: "${{ steps.version.outputs.base_version }}.${{ steps.version.outputs.pre_number || '0' }}"
+          version: "${{ steps.version.outputs.base_version }}.${{ steps.version.outputs.pre_number }}"
         shell: bash
         run: |
           uvx toml-run win-version -- --version "${{ env.version }}"
