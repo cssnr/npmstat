@@ -37,14 +37,15 @@ Get NPM Package Stats and Info from the command line or as a Python module.
 Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
-python -m pip install npmstat
+pip install npmstat
 ```
 
-Get Package Stats.
+From GitHub: https://github.com/cssnr/npmstat/releases/latest
 
-```shell
-npmstat stats @cssnr/vitepress-swiper
-```
+- [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
+- [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
+- [linux-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip)
+- [linux-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip)
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
 
@@ -72,23 +73,26 @@ options:
 
 ## Support<a id="support"></a>
 
-For general help or to request a feature, see:
-
-- Q&A Discussion: <https://github.com/cssnr/npmstat/discussions/categories/q-a>
-- Request a Feature: <https://github.com/cssnr/npmstat/discussions/categories/feature-requests>
-- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
-
-If you are experiencing an issue/bug or getting unexpected results, you can:
+If you run into any issues or need help getting started, please do one of the following:
 
 - Report an Issue: <https://github.com/cssnr/npmstat/issues>
-- Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=npmstat)
+- Q&A Discussion: <https://github.com/cssnr/npmstat/discussions/categories/q-a>
+- Request a Feature: <https://github.com/cssnr/npmstat/issues/new?template=1-feature.yaml>
+- Request Server Support: <https://github.com/cssnr/npmstat/issues/new?template=2-server.yaml>
 - Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
+
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://github.com/cssnr/npmstat/issues/new?template=1-feature.yaml)
+[![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/npmstat/issues)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=rocketdotchat&logoColor=white)](https://github.com/cssnr/npmstat/discussions)
+[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
 ## Contributing<a id="contributing"></a>
 
-Contributing and Development docs are in the [CONTRIBUTING.md](#contributing-ov-file).
+If you would like to submit a PR, please review the [CONTRIBUTING.md](#contributing-ov-file).
 
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
+
+For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)

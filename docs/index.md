@@ -27,54 +27,51 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## Install
 
-From PyPI: https://pypi.org/p/npmstat
+From PyPI: https://pypi.org/p/npmstat  
+From GitHub: https://github.com/cssnr/npmstat/releases/latest
 
 === "pip"
 
     ```shell
-    python -m pip install npmstat
+    pip install npmstat
     ```
 
 === "uv"
 
     ```shell
-    uv add npmstat
+    uv tool install npmstat
     ```
 
-=== "requirements.txt"
+=== "download"
 
-    ``` text
-    npmstat
-    ```
-
-=== "pyproject.toml"
-
-    ``` toml
-    dependencies = ["npmstat"]
-    ```
-
-From GitHub using pip.
-
-```shell
-python -m pip install git+https://github.com/cssnr/npmstat.git
-```
-
-From Source using pip.
-
-```shell
-git clone https://github.com/cssnr/npmstat.git
-python -m pip install npmstat
-```
+    - [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
+    - [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
+    - [linux-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip)
+    - [linux-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip)
 
 Uninstall.
 
-```shell
-python -m pip uninstall npmstat
-```
+=== "pip"
+
+    ```shell
+    pip uninstall npmstat
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool uninstall npmstat
+    ```
+
+=== "download"
+
+    ```shell
+    rm -f npmstat
+    ```
 
 ## Usage
 
-- From the command line run.
+- From the command line run `npmstat`.
 
 ```shell
 npmstat stats @cssnr/vitepress-swiper
