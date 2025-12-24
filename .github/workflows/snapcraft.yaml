@@ -70,11 +70,14 @@ jobs:
       - name: "Snap Build"
         id: build
         uses: snapcore/action-build@v1
+        with:
+          snapcraft-args: "--verbosity verbose"
 
       - name: "Stat Snap"
         continue-on-error: true
         run: |
-          results="$(stat ${{ steps.build.outputs.snap }})"
+          #results="$(stat ${{ steps.build.outputs.snap }})"
+          results="$(ls -lah -- *.snap)"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
@@ -86,13 +89,15 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: snap
-          path: ${{ steps.build.outputs.snap }}
+          #path: ${{ steps.build.outputs.snap }}
+          path: "*.snap"
 
       - name: "Upload Release"
         if: ${{ github.event_name == 'release' }}
         uses: cssnr/upload-release-action@latest
         with:
-          files: ${{ steps.build.outputs.snap }}
+          #files: ${{ steps.build.outputs.snap }}
+          files: "*.snap"
 
       - name: "Snap Publish"
         uses: snapcore/action-publish@v1
