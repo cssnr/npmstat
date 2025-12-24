@@ -9,7 +9,7 @@ __pycache__/
 build/
 dist/
 .*cache/
-/.*cache*
+.*cache*
 *.log
 *.pyc
 .coverage
@@ -17,4 +17,5 @@ coverage.xml
 # App
 /site/
 /test*.*
+*.spec
 win-version.txt
