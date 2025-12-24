@@ -86,10 +86,7 @@ jobs:
         if: ${{ matrix.os == 'windows-latest' && inputs.windows-file }}
         shell: bash
         run: |
-          #uv run pyivf-make_version --source-format yaml \
-          #  --metadata-source "${{ inputs.windows-file }}" \
-          #  --outfile win-version.txt --version "0.${{ inputs.version }}"
-          uvx toml-run win-version -- --version "0.${{ inputs.version }}"
+          uvx toml-run win-version -- --version "${{ inputs.version }}.0"
 
       - name: "Debug Windows Version"
         if: ${{ matrix.os == 'windows-latest' }}
@@ -101,7 +98,6 @@ jobs:
       - name: "Build"
         shell: bash
         run: |
-          #uv run pyinstaller -F -n npmstat -i docs/favicon.ico ${{ matrix.extra-args }} ${{ inputs.source-file }}
           uvx toml-run pyinstaller -- ${{ matrix.extra-args }}
 
       - name: "List Artifacts"
