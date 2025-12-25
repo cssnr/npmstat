@@ -203,7 +203,7 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Autocomplete :lucide-flask-conical:{ title="Experimental Feature" }
 
-Shell autocomplete support is provided by [click](https://github.com/pallets/click).
+Shell autocomplete support is provided by [Click :lucide-arrow-up-right:](https://github.com/pallets/click).
 
 After [installing](index.md#install) run the following command.
 

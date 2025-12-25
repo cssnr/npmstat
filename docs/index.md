@@ -27,8 +27,9 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## Install
 
-From PyPI: https://pypi.org/p/npmstat  
-From GitHub: https://github.com/cssnr/npmstat/releases/latest
+Using [PyPI :lucide-arrow-up-right:](https://pypi.org/p/npmstat),
+with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap),
+or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases/latest).
 
 === "pip"
 
@@ -40,6 +41,13 @@ From GitHub: https://github.com/cssnr/npmstat/releases/latest
 
     ```shell
     uv tool install npmstat
+    ```
+
+=== "brew"
+
+    ```shell
+    brew tap cssnr/tap
+    brew install npmstat
     ```
 
 === "download"
@@ -62,6 +70,12 @@ Uninstall.
 
     ```shell
     uv tool uninstall npmstat
+    ```
+
+=== "brew"
+
+    ```shell
+    brew uninstall npmstat
     ```
 
 === "download"
