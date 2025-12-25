@@ -38,6 +38,14 @@ Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
 pip install npmstat
+uv tool install npmstat
+```
+
+From Homebrew: <https://github.com/cssnr/homebrew-tap>
+
+```shell
+brew tap cssnr/tap
+brew install npmstat
 ```
 
 From GitHub: https://github.com/cssnr/npmstat/releases/latest
