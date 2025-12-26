@@ -89,7 +89,7 @@ jobs:
         if: ${{ github.event_name != 'release' }}
         uses: actions/upload-artifact@v5
         with:
-          name: snap
+          name: ${{ matrix.os }}
           path: ${{ steps.build.outputs.snap }}
 
       - name: "Upload Release"
