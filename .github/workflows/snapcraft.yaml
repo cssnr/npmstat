@@ -20,9 +20,12 @@ on:
 
 jobs:
   snapcraft:
-    name: "Build"
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    name: "Snapcraft - ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm]
 
     permissions:
       contents: read
@@ -74,8 +77,7 @@ jobs:
       - name: "Stat Snap"
         continue-on-error: true
         run: |
-          #results="$(stat ${{ steps.build.outputs.snap }})"
-          results="$(ls -lah -- *.snap)"
+          results="$(stat ${{ steps.build.outputs.snap }})"
           echo "::group::results"
           echo "${results}"
           echo "::endgroup::"
@@ -87,15 +89,13 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: snap
-          #path: ${{ steps.build.outputs.snap }}
-          path: "*.snap"
+          path: ${{ steps.build.outputs.snap }}
 
       - name: "Upload Release"
         if: ${{ github.event_name == 'release' }}
         uses: cssnr/upload-release-action@latest
         with:
-          #files: ${{ steps.build.outputs.snap }}
-          files: "*.snap"
+          files: ${{ steps.build.outputs.snap }}
 
       - name: "Snap Publish"
         uses: snapcore/action-publish@v1
