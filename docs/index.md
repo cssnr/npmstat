@@ -46,8 +46,7 @@ or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releas
 === "brew"
 
     ```shell
-    brew tap cssnr/tap
-    brew install npmstat
+    brew install cssnr/tap/npmstat
     ```
 
 === "download"
