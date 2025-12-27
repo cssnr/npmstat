@@ -44,8 +44,7 @@ uv tool install npmstat
 From Homebrew: <https://github.com/cssnr/homebrew-tap>
 
 ```shell
-brew tap cssnr/tap
-brew install npmstat
+brew install cssnr/tap/npmstat
 ```
 
 From GitHub: https://github.com/cssnr/npmstat/releases/latest
