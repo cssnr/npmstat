@@ -1,8 +1,9 @@
 import sys
-from typing import Any, Optional
+from typing import Any, Optional, Literal
 
 import typer
-from rich import print, print_json
+from rich import print, print_json, box
+from rich.table import Table
 from typing_extensions import Annotated
 
 from . import __doc__ as package_doc
@@ -15,14 +16,14 @@ context_settings = {
     # "ignore_unknown_options": True,
 }
 
-app = typer.Typer(context_settings=context_settings)
+app = typer.Typer(context_settings=context_settings, add_completion=False)
 
 state = {"verbose": False}
 
 
-def vprint(*objects: Any, **kwargs):
-    if state.get("verbose"):
-        print(*objects, file=sys.stderr, **kwargs)
+def vprint(*objects: Any, lvl=1, sep="\n", **kwargs):
+    if state["verbose"] >= lvl:
+        print(*objects, file=sys.stderr, sep=sep, **kwargs)
 
 
 def version_callback(value: bool):
@@ -43,14 +44,18 @@ def clear_cache_callback(value: bool):
 def info(
     package: Annotated[str, typer.Argument(help="NPM Package Name.")],
     version: Annotated[Optional[str], typer.Argument(help="Package Version")] = None,
+    # _format: Annotated[
+    #     Literal["table", "json"], typer.Option("-f", "--format", case_sensitive=False, help="Output Format.")
+    # ] = "table",
     _indent: Annotated[Optional[int], typer.Option("-i", "--indent", help="JSON Indent.")] = 2,
     _purge: Annotated[Optional[bool], typer.Option("-p", "--purge", help="Purge Cache for Request.")] = False,
-    _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
+    # _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
 ):
     """Get Package Information."""
-    vprint(f"{package=}", f"{version=}", f"{_indent=}", f"{_purge=}", f"{_force=}", sep="\n")
+    _format = "INOP"
+    vprint(f"{package=}", f"{version=}", f"{_indent=}", f"{_purge=}", f"{_format=}")
     r = api.get_package(package, version)
-    vprint(f"{r.url=}", f"{r.from_cache=}", sep="\n")
+    vprint(f"{r.url=}", f"{r.from_cache=}")
     data = r.json()
     print_json(data=data, indent=_indent or None)
 
@@ -60,21 +65,40 @@ def stats(
     package: Annotated[str, typer.Argument(help="NPM Package Name.")],
     period: Annotated[str, typer.Argument(help="Stats Period.")] = "last-day",
     _range: Annotated[bool, typer.Option("--range", "-r", help="Get Range.")] = False,
+    _format: Annotated[
+        Literal["table", "json"], typer.Option("-f", "--format", case_sensitive=False, help="Output Format.")
+    ] = "table",
     _indent: Annotated[Optional[int], typer.Option("-i", "--indent", help="JSON Indent.")] = 2,
     _purge: Annotated[Optional[bool], typer.Option("-p", "--purge", help="Purge Cache for Request.")] = False,
-    _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
+    # _force: Annotated[Optional[bool], typer.Option("-f", "--force-purge", help="Force Purge for Request.")] = False,
 ):
     """Get Package Download Stats."""
-    vprint(f"{package=}", f"{period=}", f"{_range=}", f"{_indent=}", f"{_purge=}", f"{_force=}", sep="\n")
+    vprint(f"{package=}", f"{period=}", f"{_range=}", f"{_indent=}", f"{_purge=}", f"{_format=}")
     r = api.get_downloads(package, period, get_range=_range)
-    vprint(f"{r.url=}", f"{r.from_cache=}", sep="\n")
+    vprint(f"{r.url=}", f"{r.from_cache=}")
     data = r.json()
-    print_json(data=data, indent=_indent or None)
+    if _format == "json":
+        return print_json(data=data, indent=_indent or None)
+    print(f"[magenta bold]{data['package']}")
+    if not _range:
+        table = Table(box=box.ROUNDED, safe_box=False)
+        table.add_column("Start", style="cyan bold", no_wrap=True)
+        table.add_column("End", style="cyan bold", no_wrap=True)
+        table.add_column("Downloads", style="green bold", no_wrap=True)
+        table.add_row(data["start"], data["end"], str(data["downloads"]))
+        return print(table)
+    table = Table(box=box.ROUNDED, safe_box=False)
+    table.add_column("Day", style="cyan bold", no_wrap=True)
+    table.add_column("Downloads", style="green bold", no_wrap=True)
+    for download in data["downloads"]:
+        table.add_row(download["day"], str(download["downloads"]))
+    print(table)
 
 
 @app.callback(no_args_is_help=True, epilog="Docs: https://cssnr.github.io/npmstat/cli/")
 def main(
     _verbose: Annotated[Optional[bool], typer.Option("-v", "--verbose", help="Verbose Output (jq safe).")] = False,
+    # _verbose: Annotated[int, typer.Option("-v", "--verbose", count=True, help="Verbose Output (jq safe).")] = 0,
     _version: Annotated[
         Optional[bool], typer.Option("-V", "--version", help="Show App Version.", callback=version_callback)
     ] = None,
@@ -83,12 +107,11 @@ def main(
     ] = None,
 ):
     """
-    NPM Stat CLI
-
     Example: npmstat -v stats @cssnr/vitepress-swiper
     """
     if _verbose:
         state["verbose"] = _verbose
+    # vprint(f"{_verbose=}", f"{state=}")
 
 
 if __name__ == "__main__":
