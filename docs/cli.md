@@ -25,32 +25,25 @@ To see the help use the `[COMMAND] -h` flag.
     ```text
     Usage: npmstat [OPTIONS] COMMAND [ARGS]...
 
-    NPM Stat CLI
-
     Example: npmstat -v stats @cssnr/vitepress-swiper
 
-    ┌─ Options ──────────────────────────────────────────────────────────┐
-    │ --verbose             -v        Verbose Output (jq safe).     │
-    │ --version             -V        Show App Version.             │
-    │ --clear-cache         -C        Clear Request Cache.          │
-    │ --install-completion            Install completion for the    │
-    │                                 current shell.                │
-    │ --show-completion               Show completion for the       │
-    │                                 current shell, to copy it or  │
-    │                                 customize the installation.   │
-    │ --help                -h        Show this message and exit.   │
-    └─────────────────────────────────────────────────────────────────────┘
-    ┌─ Commands ─────────────────────────────────────────────────────────┐
-    │ info    Get Package Information.                              │
-    │ stats   Get Package Download Stats.                           │
-    └─────────────────────────────────────────────────────────────────────┘
+    ┌─ Options ────────────────────────────────────────────┐
+    │ --verbose      -v        Verbose Output (jq safe).   │
+    │ --version      -V        Show App Version.           │
+    │ --clear-cache  -C        Clear Request Cache.        │
+    │ --help         -h        Show this message and exit. │
+    └──────────────────────────────────────────────────────┘
+    ┌─ Commands ───────────────────────────────────────────┐
+    │ info    Get Package Information.                     │
+    │ stats   Get Package Download Stats.                  │
+    └──────────────────────────────────────────────────────┘
     ```
 
 To enable tab-completion follow the [Autocomplete](#autocomplete) instructions.
 
 !!! quote "Output Format"
 
-    Currently all output is in **JSON** format and can be piped directly into `jq`.
+    Output format defaults to `table`. To use `JSON` add `--format json`.
 
 ## Commands
 
@@ -63,18 +56,20 @@ You can also view the [Examples](#examples) below.
 Get package information. Without a `version` all versions are returned.
 
 ```text
+ Usage: npmstat info [OPTIONS] PACKAGE [VERSION]
+
  Get Package Information.
 
-┌─ Arguments ────────────────────────────────────────────────────────┐
-│ *    package      TEXT       NPM Package Name. [required]     │
-│      version      [VERSION]  Package Version                  │
-└─────────────────────────────────────────────────────────────────────┘
-┌─ Options ──────────────────────────────────────────────────────────┐
-│ --indent       -i      INTEGER  JSON Indent. [default: 2]     │
-│ --purge        -p               Purge Cache for Request.      │
-│ --force-purge  -f               Force Purge for Request.      │
-│ --help         -h               Show this message and exit.   │
-└─────────────────────────────────────────────────────────────────────┘
+┌─ Arguments ─────────────────────────────────────────────────────┐
+│ *    package      TEXT       NPM Package Name. [required]       │
+│      version      [VERSION]  Package Version                    │
+└─────────────────────────────────────────────────────────────────┘
+┌─ Options ───────────────────────────────────────────────────────┐
+│ --format  -f      [table|json]  Output Format. [default: table] │
+│ --indent  -i      INTEGER       JSON Indent. [default: 2]       │
+│ --purge   -p                    Purge Cache for Request.        │
+│ --help    -h                    Show this message and exit.     │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 !!! tip "In the terminal output is scaled and displays properly."
@@ -88,17 +83,17 @@ Get package stats for a `period`. The default is `last-day`.
 
  Get Package Download Stats.
 
-┌─ Arguments ────────────────────────────────────────────────────────┐
-│ *    package      TEXT      NPM Package Name. [required]      │
-│      period       [PERIOD]  Stats Period. [default: last-day] │
-└─────────────────────────────────────────────────────────────────────┘
-┌─ Options ──────────────────────────────────────────────────────────┐
-│ --range        -r               Get Range.                    │
-│ --indent       -i      INTEGER  JSON Indent. [default: 2]     │
-│ --purge        -p               Purge Cache for Request.      │
-│ --force-purge  -f               Force Purge for Request.      │
-│ --help         -h               Show this message and exit.   │
-└─────────────────────────────────────────────────────────────────────┘
+┌─ Arguments ─────────────────────────────────────────────────────┐
+│ *    package      TEXT      NPM Package Name. [required]        │
+│      period       [PERIOD]  Stats Period. [default: last-day]   │
+└─────────────────────────────────────────────────────────────────┘
+┌─ Options ───────────────────────────────────────────────────────┐
+│ --range   -r                    Get Range.                      │
+│ --format  -f      [table|json]  Output Format. [default: table] │
+│ --indent  -i      INTEGER       JSON Indent. [default: 2]       │
+│ --purge   -p                    Purge Cache for Request.        │
+│ --help    -h                    Show this message and exit.     │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 !!! tip "In the terminal output is scaled and displays properly."
@@ -119,79 +114,55 @@ Reference: https://github.com/npm/registry/blob/main/docs/download-counts.md
 
 ## Examples
 
-???+ abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week`"
+???+ abstract "`npmstat info @cssnr/vitepress-swiper`"
 
     ```shell
-    npmstat stats -v @cssnr/vitepress-swiper last-week
+    npmstat info @cssnr/vitepress-swiper
     ```
 
     ```shell
-    package: @cssnr/vitepress-swiper
-    period: last-week
-    range: False
-    url: https://api.npmjs.org/downloads/point/last-week/@cssnr/vitepress-swiper
-    from_cache: True
-    {
-      "downloads": 752,
-      "start": "2025-11-28",
-      "end": "2025-12-04",
-      "package": "@cssnr/vitepress-swiper"
-    }
+                           @cssnr/vitepress-swiper
+    ╭─────────────┬──────────────────────────────────────────────────────╮
+    │ Key         │ Value                                                │
+    ├─────────────┼──────────────────────────────────────────────────────┤
+    │ Link        │ https://www.npmjs.com/package/@cssnr/vitepress-swip… │
+    │ Description │ A VitePress Plugin to Easily add a SwiperJS Photo    │
+    │             │ Gallery or Image Slideshow with Custom Options.      │
+    │ License     │ GPL-3.0-only                                         │
+    │ Homepage    │ https://vitepress-swiper.cssnr.com                   │
+    │ Issues      │ https://github.com/cssnr/vitepress-swiper/issues     │
+    │ Updated     │ 2025-09-23T02:27:26.786Z                             │
+    │ Created     │ 2025-08-25T06:49:25.597Z                             │
+    │ Latest      │ 0.2.1                                                │
+    │ Versions    │ 11                                                   │
+    ╰─────────────┴──────────────────────────────────────────────────────╯
     ```
 
-??? abstract "`npmstat stats -v @cssnr/vitepress-swiper last-week -r`"
+??? abstract "`npmstat stats @cssnr/vitepress-plugin-contributors  last-week -r`"
 
     ```shell
-    npmstat stats -v @cssnr/vitepress-swiper last-week -r
+    npmstat stats @cssnr/vitepress-plugin-contributors  last-week -r
     ```
 
     ```shell
-    package: @cssnr/vitepress-swiper
-    period: last-week
-    range: True
-    url: https://api.npmjs.org/downloads/range/last-week/@cssnr/vitepress-swiper
-    from_cache: True
-    {
-      "start": "2025-11-28",
-      "end": "2025-12-04",
-      "package": "@cssnr/vitepress-swiper",
-      "downloads": [
-        {
-          "downloads": 186,
-          "day": "2025-11-28"
-        },
-        {
-          "downloads": 6,
-          "day": "2025-11-29"
-        },
-        {
-          "downloads": 15,
-          "day": "2025-11-30"
-        },
-        {
-          "downloads": 109,
-          "day": "2025-12-01"
-        },
-        {
-          "downloads": 261,
-          "day": "2025-12-02"
-        },
-        {
-          "downloads": 118,
-          "day": "2025-12-03"
-        },
-        {
-          "downloads": 57,
-          "day": "2025-12-04"
-        }
-      ]
-    }
+    @cssnr/vitepress-plugin-contributors
+    ╭────────────┬───────────╮
+    │ Day        │ Downloads │
+    ├────────────┼───────────┤
+    │ 2025-12-21 │ 0         │
+    │ 2025-12-22 │ 9         │
+    │ 2025-12-23 │ 0         │
+    │ 2025-12-24 │ 2         │
+    │ 2025-12-25 │ 0         │
+    │ 2025-12-26 │ 1         │
+    │ 2025-12-27 │ 1         │
+    ╰────────────┴───────────╯
     ```
 
 ??? abstract "`npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'`"
 
     ```shell
-    npmstat info @cssnr/vitepress-swiper 0.0.5 | jq '.peerDependencies'
+    npmstat info @cssnr/vitepress-swiper 0.0.5 -f json | jq '.peerDependencies'
     ```
 
     ```json
