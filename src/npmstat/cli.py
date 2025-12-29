@@ -16,7 +16,7 @@ context_settings = {
     # "ignore_unknown_options": True,
 }
 
-app = typer.Typer(context_settings=context_settings, add_completion=False)
+app = typer.Typer(context_settings=context_settings)
 
 state = {"verbose": False}
 
@@ -29,7 +29,7 @@ def vprint(*objects: Any, lvl=1, sep="\n", **kwargs):
 def version_callback(value: bool):
     if value:
         print(package_doc, file=sys.stderr)
-        print(__version__)
+        print(f"[white bold]{__version__}")
         raise typer.Exit()
 
 

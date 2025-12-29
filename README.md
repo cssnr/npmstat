@@ -49,6 +49,13 @@ brew install cssnr/tap/npmstat
 
 From GitHub: https://github.com/cssnr/npmstat/releases/latest
 
+```shell
+curl https://i.jpillora.com/cssnr/npmstat! | bash
+```
+
+Note: the `!` installs into `/usr/local/bin`. Omit this to use the current directory.
+See [jpillora/installer](https://github.com/jpillora/installer) for more details.
+
 - [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
 - [macos-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip)
 - [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
