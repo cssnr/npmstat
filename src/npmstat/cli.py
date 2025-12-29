@@ -18,7 +18,7 @@ context_settings = {
 
 app = typer.Typer(context_settings=context_settings)
 
-state = {"verbose": False}
+state = {"verbose": 0}
 
 
 def vprint(*objects: Any, lvl=1, sep="\n", **kwargs):
@@ -116,8 +116,8 @@ def stats(
 
 @app.callback(no_args_is_help=True, epilog="Docs: https://cssnr.github.io/npmstat/cli/")
 def main(
-    _verbose: Annotated[Optional[bool], typer.Option("-v", "--verbose", help="Verbose Output (jq safe).")] = False,
-    # _verbose: Annotated[int, typer.Option("-v", "--verbose", count=True, help="Verbose Output (jq safe).")] = 0,
+    # _verbose: Annotated[Optional[bool], typer.Option("-v", "--verbose", help="Verbose Output (jq safe).")] = False,
+    _verbose: Annotated[int, typer.Option("-v", "--verbose", count=True, help="Verbose Output (jq safe).")] = 0,
     _version: Annotated[
         Optional[bool], typer.Option("-V", "--version", help="Show App Version.", callback=version_callback)
     ] = None,
@@ -130,7 +130,7 @@ def main(
     """
     if _verbose:
         state["verbose"] = _verbose
-    # vprint(f"{_verbose=}", f"{state=}")
+    vprint(f"{_verbose=}", f"{state=}")
 
 
 if __name__ == "__main__":
