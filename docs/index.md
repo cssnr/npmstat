@@ -49,7 +49,7 @@ or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releas
     brew install cssnr/tap/npmstat  # (1)!
     ```
 
-    1.  Tap Source: <https://github.com/cssnr/homebrew-tap>
+    1.  Tap Source: [https://github.com/cssnr/homebrew-tap](https://github.com/cssnr/homebrew-tap/?tab=readme-ov-file#readme)
 
 === "github"
 

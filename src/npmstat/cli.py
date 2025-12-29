@@ -1,8 +1,8 @@
 import sys
-from typing import Any, Optional, Literal
+from typing import Any, Literal, Optional
 
 import typer
-from rich import print, print_json, box
+from rich import box, print, print_json
 from rich.table import Table
 from typing_extensions import Annotated
 
