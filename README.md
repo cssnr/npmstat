@@ -38,6 +38,9 @@ Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
 pip install npmstat
+```
+
+```shell
 uv tool install npmstat
 ```
 
@@ -53,14 +56,13 @@ From GitHub: https://github.com/cssnr/npmstat/releases/latest
 curl https://i.jpillora.com/cssnr/npmstat! | bash
 ```
 
-Note: the `!` installs into `/usr/local/bin`. Omit this to use the current directory.
 See [jpillora/installer](https://github.com/jpillora/installer) for more details.
 
-- [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
-- [macos-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip)
-- [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
-- [linux-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip)
-- [linux-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip)
+- [Windows x86_64](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip) _amd64_
+- [macOS Apple Intel](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip) _amd64_
+- [macOS Apple Silicon](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip) _arm64_
+- [Linux x86_64](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip) _amd64_
+- [Linux ARM](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip) _arm64_
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
 

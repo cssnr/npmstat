@@ -99,14 +99,14 @@ def stats(
 
     print(f"[magenta bold]{data['package']}")
     if not _range:
-        table = Table(box=box.ROUNDED, safe_box=False)
+        table = Table(title=period, box=box.ROUNDED, safe_box=False)
         table.add_column("Start", style="cyan bold", no_wrap=True)
         table.add_column("End", style="cyan bold", no_wrap=True)
         table.add_column("Downloads", style="green bold", no_wrap=True)
         table.add_row(data["start"], data["end"], str(data["downloads"]))
         return print(table)
 
-    table = Table(box=box.ROUNDED, safe_box=False)
+    table = Table(title=period, box=box.ROUNDED, safe_box=False)
     table.add_column("Day", style="cyan bold", no_wrap=True)
     table.add_column("Downloads", style="green bold", no_wrap=True)
     for download in data["downloads"]:

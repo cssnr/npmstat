@@ -28,7 +28,7 @@ If you run into any issues or have any questions, [support](support.md) is avail
 ## Install
 
 Using [PyPI :lucide-arrow-up-right:](https://pypi.org/p/npmstat),
-with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap),
+with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap?tab=readme-ov-file#readme),
 or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases/latest).
 
 === "pip"
@@ -61,7 +61,35 @@ or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releas
 
         Omit this to use the current directory.
 
-        See [jpillora/installer](https://github.com/jpillora/installer) for more details.
+        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+
+Upgrade.
+
+=== "pip"
+
+    ```shell
+    pip install -U npmstat
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool upgrade npmstat
+    ```
+
+=== "brew"
+
+    ```shell
+    brew update && brew install  npmstat
+    ```
+
+=== "github"
+
+    ```shell
+    curl https://i.jpillora.com/cssnr/npmstat! | bash  # (1)!
+    ```
+
+    1.  To upgrade, install the latest release.
 
 Uninstall.
 
@@ -89,7 +117,7 @@ Uninstall.
     rm -f /usr/local/bin/npmstat  # (1)!
     ```
 
-    1.  Or the path to where you installed it.
+    1.  If you used the installation script above.
 
 ## Usage
 
