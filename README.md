@@ -56,7 +56,8 @@ From GitHub: https://github.com/cssnr/npmstat/releases/latest
 curl https://i.jpillora.com/cssnr/npmstat! | bash
 ```
 
-See [jpillora/installer](https://github.com/jpillora/installer) for more details.
+See [jpillora/installer](https://github.com/jpillora/installer) for more details.  
+Alternatively, you can manually download the release.
 
 - [Windows x86_64](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip) _amd64_
 - [macOS Apple Intel](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip) _amd64_
