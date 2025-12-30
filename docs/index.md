@@ -27,7 +27,7 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## Install
 
-Using [PyPI :lucide-arrow-up-right:](https://pypi.org/p/npmstat),
+Using [PyPI :lucide-arrow-up-right:](https://pypi.org/project/npmstat),
 with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap?tab=readme-ov-file#readme),
 or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases/latest).
 
@@ -89,7 +89,7 @@ Upgrade.
     curl https://i.jpillora.com/cssnr/npmstat! | bash  # (1)!
     ```
 
-    1.  To upgrade, install the latest release.
+    1.  To upgrade, install the [latest release :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases).
 
 Uninstall.
 
