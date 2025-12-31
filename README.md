@@ -38,6 +38,9 @@ Install From PyPI: <https://pypi.org/p/npmstat>
 
 ```shell
 pip install npmstat
+```
+
+```shell
 uv tool install npmstat
 ```
 
@@ -49,11 +52,18 @@ brew install cssnr/tap/npmstat
 
 From GitHub: https://github.com/cssnr/npmstat/releases/latest
 
-- [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
-- [macos-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip)
-- [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
-- [linux-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip)
-- [linux-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip)
+```shell
+curl https://i.jpillora.com/cssnr/npmstat! | bash
+```
+
+See [jpillora/installer](https://github.com/jpillora/installer) for more details.  
+Alternatively, you can manually download a release for your system.
+
+- [Windows x86_64](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip) _amd64_
+- [macOS Apple Intel](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip) _amd64_
+- [macOS Apple Silicon](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip) _arm64_
+- [Linux x86_64](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip) _amd64_
+- [Linux ARM](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip) _arm64_
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
 
@@ -62,19 +72,20 @@ From GitHub: https://github.com/cssnr/npmstat/releases/latest
 To use run `npmstat` from your command line.
 
 ```text
-usage: npmstat [-h] [-C] [-V] [command] ...
+ Usage: npmstat [OPTIONS] COMMAND [ARGS]...
 
-example: npmstat stats @cssnr/vitepress-swiper
+ Example: npmstat -v stats @cssnr/vitepress-swiper
 
-positional arguments:
-  [command]
-    info             get package info
-    stats            get download stats
-
-options:
-  -h, --help         show this help message and exit
-  -C, --clear-cache  clear the request cache and exit
-  -V, --version      show the package version and exit
+┌─ Options ────────────────────────────────────────────┐
+│ --verbose      -v        Verbose Output (jq safe).   │
+│ --version      -V        Show App Version.           │
+│ --clear-cache  -C        Clear Request Cache.        │
+│ --help         -h        Show this message and exit. │
+└──────────────────────────────────────────────────────┘
+┌─ Commands ───────────────────────────────────────────┐
+│ info    Get Package Information.                     │
+│ stats   Get Package Download Stats.                  │
+└──────────────────────────────────────────────────────┘
 ```
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)

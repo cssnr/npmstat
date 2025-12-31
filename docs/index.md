@@ -27,8 +27,8 @@ If you run into any issues or have any questions, [support](support.md) is avail
 
 ## Install
 
-Using [PyPI :lucide-arrow-up-right:](https://pypi.org/p/npmstat),
-with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap),
+Using [PyPI :lucide-arrow-up-right:](https://pypi.org/project/npmstat),
+with [Homebrew :lucide-arrow-up-right:](https://github.com/cssnr/homebrew-tap?tab=readme-ov-file#readme),
 or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases/latest).
 
 === "pip"
@@ -46,16 +46,50 @@ or from [GitHub :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releas
 === "brew"
 
     ```shell
-    brew install cssnr/tap/npmstat
+    brew install cssnr/tap/npmstat  # (1)!
     ```
 
-=== "download"
+    1.  Tap Source: [https://github.com/cssnr/homebrew-tap](https://github.com/cssnr/homebrew-tap/?tab=readme-ov-file#readme)
 
-    - [windows-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/windows-amd64.zip)
-    - [macos-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-arm64.zip)
-    - [macos-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/macos-amd64.zip)
-    - [linux-amd64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-amd64.zip)
-    - [linux-arm64.zip](https://github.com/cssnr/npmstat/releases/latest/download/linux-arm64.zip)
+=== "github"
+
+    ```shell
+    curl https://i.jpillora.com/cssnr/npmstat! | bash  # (1)!
+    ```
+
+    1.  Note: the `!` installs into `/usr/local/bin`.
+
+        Omit this to use the current directory.
+
+        See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+
+Upgrade.
+
+=== "pip"
+
+    ```shell
+    pip install -U npmstat
+    ```
+
+=== "uv"
+
+    ```shell
+    uv tool upgrade npmstat
+    ```
+
+=== "brew"
+
+    ```shell
+    brew update && brew install  npmstat
+    ```
+
+=== "github"
+
+    ```shell
+    curl https://i.jpillora.com/cssnr/npmstat! | bash  # (1)!
+    ```
+
+    1.  To upgrade, install the [latest release :lucide-arrow-up-right:](https://github.com/cssnr/npmstat/releases).
 
 Uninstall.
 
@@ -77,11 +111,13 @@ Uninstall.
     brew uninstall npmstat
     ```
 
-=== "download"
+=== "github"
 
     ```shell
-    rm -f npmstat
+    rm -f /usr/local/bin/npmstat  # (1)!
     ```
+
+    1.  If you used the installation script above.
 
 ## Usage
 
