@@ -56,7 +56,7 @@ jobs:
           sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
           repo: cssnr/homebrew-tap
           formula: ${{ inputs.name }}
-          message: Bump ${{ inputs.name }} to ${{ github.ref_name }}
+          message: Bump ${{ inputs.name }} to ${{ inputs.version }}
           branch: master
           app_id: 146360
           app_private_key: ${{ secrets.APP_PRIVATE_KEY }}
@@ -67,7 +67,7 @@ jobs:
       #    COMMITTER_TOKEN: ${{ secrets.HOMEBREW_PAT }}
       #  with:
       #    formula-name: "${{ inputs.name }}"
-      #    tag-name: ${{ github.ref_name }}
+      #    tag-name: ${{ inputs.version }}
       #    download-url: ${{ fromJSON(steps.url.outputs.result).url }}
       #    download-sha256: ${{ fromJSON(steps.url.outputs.result).digests.sha256 }}
       #    homebrew-tap: "cssnr/homebrew-tap"
