@@ -39,8 +39,14 @@ jobs:
         run: |
           echo "url: ${url}"
           echo "sha256: ${sha256}"
-          [ -z "${url}" ] && echo "Missing URL" && exit 1
-          [ -z "${sha256}" ] && echo "Missing SHA256" && exit 1
+          if [ -z "${url}" ]; then
+            echo "Missing URL"
+            exit 1
+          fi
+          if [ -z "${sha256}" ]; then
+            echo "Missing SHA256"
+            exit 1
+          fi
 
       - name: "Homebrew Action"
         id: homebrew
