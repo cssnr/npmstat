@@ -48,7 +48,7 @@ jobs:
         run: env
 
       - name: "Install UV"
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
 
       - name: "Install Python 3.13"
         run: |
@@ -59,12 +59,14 @@ jobs:
           uv sync --locked --all-extras --dev
 
       - name: "Update Version"
+        if: ${{ inputs.version-file }}
         uses: justalemon/VersionPatcher@master
         with:
           version: ${{ inputs.version }}
           initpy-files: ${{ inputs.version-file }}
 
       - name: "Debug Version"
+        if: ${{ inputs.version-file }}
         continue-on-error: true
         run: |
           cat ${{ inputs.version-file }}
@@ -94,7 +96,9 @@ jobs:
         if: ${{ github.event_name == 'release' }}
         uses: cssnr/upload-release-action@latest
         with:
-          globs: dist/*
+          globs: |
+            dist/*.whl
+            dist/*.tar.gz
 
       - name: "Send Failure Notification"
         if: ${{ failure() }}
