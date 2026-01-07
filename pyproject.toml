@@ -24,6 +24,7 @@ dynamic = ["version"]
 Changelog = "https://github.com/cssnr/npmstat/releases"
 Discord = "https://discord.gg/wXy6m2X8wY"
 Documentation = "https://cssnr.github.io/npmstat/"
+Download = "https://github.com/cssnr/npmstat/releases/latest"
 Funding = "https://ko-fi.com/cssnr"
 GitHub = "https://github.com/cssnr/npmstat"
 Homepage = "https://cssnr.com/"

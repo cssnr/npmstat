@@ -76,16 +76,19 @@ To use run `npmstat` from your command line.
 
  Example: npmstat -v stats @cssnr/vitepress-swiper
 
-┌─ Options ────────────────────────────────────────────┐
-│ --verbose      -v        Verbose Output (jq safe).   │
-│ --version      -V        Show App Version.           │
-│ --clear-cache  -C        Clear Request Cache.        │
-│ --help         -h        Show this message and exit. │
-└──────────────────────────────────────────────────────┘
-┌─ Commands ───────────────────────────────────────────┐
-│ info    Get Package Information.                     │
-│ stats   Get Package Download Stats.                  │
-└──────────────────────────────────────────────────────┘
+┌─ Options ──────────────────────────────────────────────────────────────────────────┐
+│ --verbose             -v      INTEGER  Verbose Output (jq safe). [default: 0]      │
+│ --version             -V               Show App Version.                           │
+│ --clear-cache         -C               Clear Request Cache.                        │
+│ --install-completion                   Install completion for the current shell.   │
+│ --show-completion                      Show completion for the current shell, to   │
+│                                        copy it or customize the installation.      │
+│ --help                -h               Show this message and exit.                 │
+└────────────────────────────────────────────────────────────────────────────────────┘
+┌─ Commands ─────────────────────────────────────────────────────────────────────────┐
+│ info    Get Package Information.                                                   │
+│ stats   Get Package Download Stats.                                                │
+└────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/npmstat/)
