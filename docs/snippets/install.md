@@ -29,3 +29,6 @@
         Omit this to use the current directory.
 
         See [jpillora/installer :lucide-arrow-up-right:](https://github.com/jpillora/installer) for more details.
+
+Windows users can download the [Windows Installer.exe](https://github.com/cssnr/npmstat/releases/latest/download/windows-installer.exe).  
+Alternatively, you can manually [download a release](https://github.com/cssnr/npmstat/releases).
