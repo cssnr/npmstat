@@ -11,7 +11,7 @@ env:
 jobs:
   pyinstaller:
     name: "PyInstaller"
-    if: ${{ !github.event.release.prerelease }}
+    #if: ${{ !github.event.release.prerelease }}
     uses: ./.github/workflows/pyinstaller.yaml
     secrets: inherit
     with:
@@ -122,7 +122,7 @@ jobs:
     name: "Release"
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: [publish]
+    needs: [publish, pyinstaller]
 
     permissions:
       contents: write
