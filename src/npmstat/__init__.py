@@ -9,5 +9,4 @@
 
 from .api import get_downloads, get_package
 
-
 __all__ = ["get_package", "get_downloads"]
