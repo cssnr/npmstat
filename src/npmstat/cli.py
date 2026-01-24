@@ -10,7 +10,6 @@ from . import __doc__ as package_doc
 from . import api
 from ._version import __version__
 
-
 context_settings = {
     "help_option_names": ["-h", "--help"],
     # "ignore_unknown_options": True,

@@ -4,7 +4,6 @@ from requests_cache import CachedResponse, CachedSession, OriginalResponse
 
 from ._version import __version__
 
-
 session = CachedSession("npmstat", use_cache_dir=True, expire_after=3600)
 
 session.headers.update({"user-agent": f"requests/npmstat-{__version__}"})

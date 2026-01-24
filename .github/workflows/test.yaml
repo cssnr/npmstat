@@ -26,6 +26,8 @@ jobs:
     with:
       version: ""
       version-file: ""
+    permissions:
+      contents: write
 
   test:
     name: "Test"
@@ -37,6 +39,8 @@ jobs:
       matrix:
         os: ["ubuntu-latest"]
         version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    permissions:
+      contents: read
 
     steps:
       - name: "Checkout"

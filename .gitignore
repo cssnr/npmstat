@@ -2,20 +2,21 @@
 .idea/
 *.iml
 .vscode/
+.*cache*
+node_modules/
+build/
+dist/
+out/
 .venv/
 venv/
 __pycache__/
 *.egg-info/
-build/
-dist/
-.*cache/
-.*cache*
-*.log
 *.pyc
 .coverage
 coverage.xml
 # App
 /site/
-/test*.*
+/tests/files
+/tests/fake.json
 *.spec
 win-version.txt

@@ -4,6 +4,10 @@ icon: lucide/square-terminal
 
 # :lucide-square-terminal: Command Line Interface
 
+Install.
+
+--8<-- "docs/snippets/install.md"
+
 To use run `npmstat` from your command line.
 
 ```shell
