@@ -17,7 +17,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 ;Compression=lzma
 ;SolidCompression=yes
-DefaultDirName={autopf}\sharex-cli
+DefaultDirName={autopf}\npmstat
 DefaultGroupName={#MyAppName}
 ;DisableDirPage=yes
 ;DisableProgramGroupPage=yes
@@ -52,7 +52,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Files]
 Source: "dist\PathMgr\i386\PathMgr.dll"; DestDir: "{app}"; Flags: uninsneveruninstall
 ;Source: "dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "dist\sharex\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "dist\npmstat\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName} Folder"; Filename: "{app}"

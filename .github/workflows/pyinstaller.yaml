@@ -133,6 +133,7 @@ jobs:
           extract: true
 
       - name: "Windows Installer - Inno Setup"
+        if: ${{ matrix.os == 'windows-latest' }}
         env:
           version: ${{ inputs.version }}
         shell: pwsh
